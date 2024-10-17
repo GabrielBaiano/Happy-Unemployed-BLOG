@@ -86,6 +86,16 @@
         padding: 10px;
       }
 
+      .footer {
+
+      
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        padding: 5rem 2vw;
+        position: relative;}
+
       @media screen and (max-width: 800px) {
 
         .grid {
