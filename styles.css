@@ -58,3 +58,11 @@
         columns: 400px;
         margin: 2em;
       }
+
+      .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1em;
+      }
