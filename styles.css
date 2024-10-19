@@ -45,52 +45,18 @@
         opacity: 0.8;
       }
 
-      /* Grid */
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        margin: 2%;
-      }
-
-      .colum {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
-        height: auto;
-
-      }
-
-      .imagens {
-        border-radius: 2%;
+      .list img {
         width: 100%;
-        height: auto;
+        border-radius: 1.5%;
       }
 
-      h2{
-        font-size: 20px;
-        text-align: left;
-        font-family: "Exo 2", sans-serif;
-        font-optical-sizing: auto;
+      .list div {
+        margin-bottom: 2.5em;
       }
 
-      p {
-        font-size: 14px;
-        text-align: left;
-        font-family: "Exo 2", sans-serif;
-        font-optical-sizing: auto;
+      .list {
+        columns: 400px;
+        margin: 2em;
       }
 
-
-      .text {
-        padding: 10px;
-      }
-
-      @media screen and (max-width: 800px) {
-
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(1, 1fr);
-          gap: 10px;
-        }
-      }
+      
