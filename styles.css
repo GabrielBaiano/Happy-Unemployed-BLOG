@@ -15,23 +15,7 @@
         color: black;
       }
 
-      .logo {
-        width: 150px;
-        margin-bottom: 10px;
-      }
 
-      .navbar {
-        position: sticky;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        z-index: +1 !important;
-      }
-
-      .menu {
-        display: flex;
-        justify-content: center;
-      }
 
       ul {
         list-style: none;
@@ -57,12 +41,4 @@
       .list {
         columns: 400px;
         margin: 2em;
-      }
-
-      .footer {
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 1em;
       }
