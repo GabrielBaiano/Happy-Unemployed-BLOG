@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="shotcut icon" href="../../src/HUpage.jpg" />
+  <title>Unemployed Blog — Post</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html"><img class="logo" src="../../src/HU.png" /></a>
+      <ul class="menu">
+        <li><a href="index.html"><span>Projects</span></a></li>
+        <li><a href="blog.html"><span>Blog</span></a></li>
+        <li><a href="index.html"><span>Design</span></a></li>
+        <li><a href="about.html"><span>About</span></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="blog" id="postRoot">
+    <article class="post-card" id="postContainer" style="box-shadow:none;border:none;">
+      <div class="post-top">
+        <div class="chip" id="postDate">Loading…</div>
+      </div>
+      <div class="post-inner">
+        <h2 class="post-price" id="postTitle"></h2>
+        <ul class="badges" id="postTags"></ul>
+        <p class="post-excerpt" id="postExcerpt"></p>
+      </div>
+      <div class="post-media"><img class="cover-rounded" id="postCover" alt="cover"></div>
+      <div class="post-full" style="padding:16px;">
+        <div id="postContent"></div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footainer">
+      <p>2025 HU. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (async function () {
+      const params = new URLSearchParams(location.search);
+      const id = params.get('id');
+      if (!id) return;
+      const res = await fetch('../posts/posts.json');
+      const posts = await res.json();
+      const post = posts.find(p => p.id === id);
+      if (!post) return;
+
+      document.getElementById('postDate').textContent = new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+      document.getElementById('postTitle').textContent = post.title;
+      document.getElementById('postExcerpt').textContent = post.excerpt;
+      document.getElementById('postCover').src = post.coverImage;
+
+      const tagsEl = document.getElementById('postTags');
+      tagsEl.innerHTML = '';
+      (post.tags || []).forEach(t => {
+        const li = document.createElement('li');
+        li.className = 'badge';
+        li.textContent = t;
+        tagsEl.appendChild(li);
+      });
+
+      let markdown = post.markdown || '';
+      if (!markdown && post.markdownUrl) {
+        const mdRes = await fetch(post.markdownUrl);
+        markdown = await mdRes.text();
+      }
+      document.getElementById('postContent').innerHTML = marked.parse(markdown || '# Post not found');
+    })();
+  </script>
+</body>
+
+</html>
+
+
