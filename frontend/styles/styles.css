@@ -4,14 +4,28 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Libre Baskerville", serif;
-  font-weight: 500;
+  font-family: "Exo 2", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
   font-style: normal;
+}
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  color: #1a1a1a;
+  line-height: 1.6;
+  background: #fff;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Exo 2", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .logo {
@@ -25,6 +39,7 @@ a {
   display: flex;
   justify-content: center;
   z-index: +1 !important;
+  margin-bottom: 32px;
 }
 
 .navbar .container {
@@ -36,6 +51,13 @@ a {
 .menu {
   display: flex;
   justify-content: center;
+}
+
+.menu span {
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: #222;
 }
 
 ul {
@@ -50,21 +72,7 @@ span:hover {
   opacity: 0.8;
 }
 
-/* Botão Design na navbar */
-.btn-design {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: #111;
-  color: #fff;
-  border: 1px solid #111;
-  margin-left: 8px;
-}
-
-.btn-design:hover {
-  background: #333;
-  border-color: #333;
-}
+/* (removido) estilo especial do botão Design para manter igual aos demais */
 
 .list img {
   width: 100%;
@@ -77,7 +85,9 @@ span:hover {
 
 .list {
   columns: 400px;
-  margin: 2em;
+  column-gap: 1em;
+  margin: 0;
+  padding: 0 1em;
 }
 
 /* Cards de galeria */
@@ -93,8 +103,9 @@ span:hover {
 
 .card-title {
   font-family: "Exo 2", sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.005em;
   margin-bottom: 2px;
 }
 
@@ -120,8 +131,8 @@ span:hover {
 
 .blog-header h1 {
   font-family: "Exo 2", sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   margin-bottom: 0.25rem;
 }
 
@@ -145,7 +156,7 @@ span:hover {
 /* Card inspirado no design do exemplo */
 .post-card {
   background: #fff;
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   overflow: hidden;
 }
@@ -166,11 +177,15 @@ span:hover {
 
 .post-inner {
   padding: 12px 16px 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-price {
   font-family: "Exo 2", sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
   margin: 8px 0 8px;
 }
 
@@ -215,20 +230,100 @@ span:hover {
 .author-name { color: #555; font-size: 0.95rem; }
 
 .cta {
-  display: inline-block;
+  display: block;
   width: 100%;
   text-align: left;
-  background: #f4f5f7;
-  border: 1px solid #e6e8ec;
-  padding: 10px 12px;
-  border-radius: 10px;
+  background: #f6f7f6;
+  border: 1px solid #e7ebe7;
+  color: #6f8e74;
+  padding: 12px 14px;
+  border-radius: 12px;
   margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
-.post-media { padding: 0 12px 14px; }
+.cta:hover {
+  background: #eef1ee;
+}
+
+.post-media { padding: 0 16px 14px; }
 
 .cover-rounded {
   width: 100%;
   border-radius: 12px;
   display: block;
 }
+
+/* Modal de post */
+.modal { display: none; }
+.modal.is-open { display: block; }
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(1400px, calc(100% - 16px));
+  max-height: calc(100% - 24px);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: #f2f2f2;
+  border-radius: 999px;
+  font-size: 22px;
+  line-height: 36px;
+  cursor: pointer;
+}
+.modal-body {
+  padding: 24px 28px;
+  overflow: auto;
+  position: relative;
+}
+.modal-body img { width: 100%; border-radius: 12px; margin: 8px 0; }
+
+/* Navegador lateral (TOC) dentro do modal */
+.toc-nav {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+}
+.toc-item {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #b9bfc6;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+.toc-item:hover { opacity: 1; }
+.toc-item.active {
+  background: #2f343a;
+  opacity: 1;
+}
+
+/* Conteúdo do post dentro do modal */
+.modal-body h2 { font-family: "Exo 2", sans-serif; margin: 0 0 8px; }
+.modal-body h3 { margin: 18px 0 6px; }
+.modal-body p { line-height: 1.6; margin: 10px 0; }
