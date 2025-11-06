@@ -122,6 +122,29 @@ span:hover {
   margin-bottom: 1em;
 }
 
+/* About page */
+.about { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+.about-hero { margin-bottom: 2rem; }
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; align-items: start; }
+.about-photo img { width: 100%; max-width: 420px; border-radius: 12px; display: block; }
+.about-text h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+.about-text p { color: #3b3b3b; }
+
+@media (min-width: 760px) {
+  .about-grid { grid-template-columns: 360px 1fr; gap: 1.5rem; }
+}
+
+.about-resume { background: #f7f8f9; border: 1px solid #eceff2; padding: 1.25rem; border-radius: 12px; }
+.about-resume h2 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+.resume-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.resume-block h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.resume-block ul { margin: 0; padding-left: 1rem; }
+.resume-block li { margin: 0.25rem 0; color: #3b3b3b; }
+
+@media (min-width: 760px) {
+  .resume-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 /* Blog page */
 .blog {
   max-width: 980px;
