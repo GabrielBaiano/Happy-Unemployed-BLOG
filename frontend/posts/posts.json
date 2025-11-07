@@ -4,15 +4,17 @@
     "date": "2025-10-22",
     "title": "Design systems — Study",
     "coverImage": "../../src/testdemo/30040172127b8d0ace9ac1225b4a03bb.jpg",
+    "imageFilter": 0.0,
     "excerpt": "How I compose tokens, typography, and spacing to scale interfaces.",
     "tags": ["Design", "Process", "Guide"],
-    "markdownUrl": "./samples/design-systems-study.md"
+    "markdownUrl": "../posts/samples/design-systems-study.md"
   },
   {
     "id": "typography-sketch-to-system",
     "date": "2025-09-10",
     "title": "Typography: from sketch to system",
     "coverImage": "../../src/testdemo/22f4570e3b8691272d2b6410f7c928a1.jpg",
+    "imageFilter": 0.0,
     "excerpt": "Modular scales, weight sets, and optical adjustments for screens and print.",
     "tags": ["Type", "Editorial"],
     "markdown": "# Typography basics\n\nThis is an inline Markdown example. You can move it to a file later.\n\n- Modular scales\n- Optical adjustments\n- Weights"

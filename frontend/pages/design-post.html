@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../styles/styles.css" />
   <link rel="shotcut icon" href="../../src/HUpage.jpg" />
-  <title>Unemployed Blog — Post</title>
+  <title>Unemployed Blog — Design Post</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
@@ -22,19 +22,19 @@
     </div>
   </header>
 
-  <main class="blog" id="postRoot">
-    <article class="post-card" id="postContainer" style="box-shadow:none;border:none;">
+  <main class="blog" id="designRoot">
+    <article class="post-card" id="designContainer" style="box-shadow:none;border:none;">
       <div class="post-top">
-        <div class="chip" id="postDate">Loading…</div>
+        <div class="chip" id="designDate">Loading…</div>
       </div>
       <div class="post-inner">
-        <h2 class="post-price" id="postTitle"></h2>
-        <ul class="badges" id="postTags"></ul>
-        <p class="post-excerpt" id="postExcerpt"></p>
+        <h2 class="post-price" id="designTitle"></h2>
+        <ul class="badges" id="designTags"></ul>
+        <p class="post-excerpt" id="designExcerpt"></p>
       </div>
-      <div class="post-media" style="position: relative;"><img class="cover-rounded" id="postCover" alt="cover"><div id="postCoverFilter" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0); pointer-events: none; border-radius: 12px;"></div></div>
+      <div class="post-media" style="position: relative;"><img class="cover-rounded" id="designCover" alt="cover"><div id="designCoverFilter" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0); pointer-events: none; border-radius: 12px;"></div></div>
       <div class="post-full" style="padding:16px;">
-        <div id="postContent"></div>
+        <div id="designContent"></div>
       </div>
     </article>
   </main>
@@ -52,12 +52,12 @@
       const filename = params.get('file') || params.get('id') + '.md';
       
       if (!filename) {
-        document.getElementById('postContent').innerHTML = '<h1>Post not found</h1><p>No filename specified.</p>';
+        document.getElementById('designContent').innerHTML = '<h1>Design not found</h1><p>No filename specified.</p>';
         return;
       }
 
       try {
-        const mdRes = await fetch(`../posts/samples/${filename}`);
+        const mdRes = await fetch(`../designs/samples/${filename}`);
         if (!mdRes.ok) {
           throw new Error(`Failed to load markdown: ${mdRes.status} ${mdRes.statusText}`);
         }
@@ -65,15 +65,15 @@
         const { metadata, content } = parseFrontMatter(markdown);
 
         // Set metadata
-        document.getElementById('postDate').textContent = new Date(metadata.date || new Date()).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
-        document.getElementById('postTitle').textContent = metadata.title || 'Untitled';
-        document.getElementById('postExcerpt').textContent = metadata.excerpt || '';
-        document.getElementById('postCover').src = metadata.coverImage || '';
+        document.getElementById('designDate').textContent = new Date(metadata.date || new Date()).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+        document.getElementById('designTitle').textContent = metadata.title || 'Untitled';
+        document.getElementById('designExcerpt').textContent = metadata.excerpt || '';
+        document.getElementById('designCover').src = metadata.coverImage || '';
         const filterValue = (metadata.imageFilter || 0) * 0.3;
-        document.getElementById('postCoverFilter').style.background = `rgba(0, 0, 0, ${filterValue})`;
+        document.getElementById('designCoverFilter').style.background = `rgba(0, 0, 0, ${filterValue})`;
 
         // Set tags
-        const tagsEl = document.getElementById('postTags');
+        const tagsEl = document.getElementById('designTags');
         tagsEl.innerHTML = '';
         (metadata.tags || []).forEach(t => {
           const li = document.createElement('li');
@@ -83,15 +83,14 @@
         });
 
         // Render content
-        document.getElementById('postContent').innerHTML = marked.parse(content || '# No content');
+        document.getElementById('designContent').innerHTML = marked.parse(content || '# No content');
       } catch (error) {
-        console.error('Error loading post:', error);
-        document.getElementById('postContent').innerHTML = `<h1>Error loading content</h1><p>Could not load the post: ${error.message}</p>`;
+        console.error('Error loading design:', error);
+        document.getElementById('designContent').innerHTML = `<h1>Error loading content</h1><p>Could not load the design: ${error.message}</p>`;
       }
     })();
   </script>
 </body>
 
 </html>
-
 

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "project-1",
+    "date": "2025-01-15",
+    "title": "Project 1",
+    "coverImage": "../../src/testdemo/02a5be772ccb8f6db7f7163a27ff91e7.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "UI/UX"],
+    "markdownUrl": "../designs/samples/project-1.md"
+  },
+  {
+    "id": "project-2",
+    "date": "2025-01-10",
+    "title": "Project 2",
+    "coverImage": "../../src/img/YellowHood Studio.png",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Branding", "Design"],
+    "markdownUrl": "../designs/samples/project-2.md"
+  },
+  {
+    "id": "project-3",
+    "date": "2025-01-08",
+    "title": "Project 3",
+    "coverImage": "../../src/testdemo/1abbdabbf0e3f12e985e7c0afac1036e.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "Visual"],
+    "markdownUrl": "../designs/samples/project-3.md"
+  },
+  {
+    "id": "project-4",
+    "date": "2025-01-05",
+    "title": "Project 4",
+    "coverImage": "../../src/testdemo/22f4570e3b8691272d2b6410f7c928a1.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["UI/UX", "Design"],
+    "markdownUrl": "../designs/samples/project-4.md"
+  },
+  {
+    "id": "project-5",
+    "date": "2025-01-03",
+    "title": "Project 5",
+    "coverImage": "../../src/testdemo/2760e683afc7a2468fe76ad22e499b50.jpg",
+    "imageFilter": 0.1,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "Visual"],
+    "markdownUrl": "../designs/samples/project-5.md"
+  },
+  {
+    "id": "project-6",
+    "date": "2025-01-01",
+    "title": "Project 6",
+    "coverImage": "../../src/testdemo/30040172127b8d0ace9ac1225b4a03bb.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "UI/UX"],
+    "markdownUrl": "../designs/samples/project-6.md"
+  },
+  {
+    "id": "project-7",
+    "date": "2024-12-28",
+    "title": "Project 7",
+    "coverImage": "../../src/testdemo/30040172127b8d0ace9ac1225b4a03bbs.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "Visual"],
+    "markdownUrl": "../designs/samples/project-7.md"
+  },
+  {
+    "id": "project-8",
+    "date": "2024-12-25",
+    "title": "Project 8",
+    "coverImage": "../../src/testdemo/7d88efa5e0ebd8a9b9e8eefe55b0e066.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "UI/UX"],
+    "markdownUrl": "../designs/samples/project-8.md"
+  },
+  {
+    "id": "project-9",
+    "date": "2024-12-22",
+    "title": "Project 9",
+    "coverImage": "../../src/testdemo/cf474aa5411859ec62b91b404997d040.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "Visual"],
+    "markdownUrl": "../designs/samples/project-9.md"
+  },
+  {
+    "id": "project-10",
+    "date": "2024-12-20",
+    "title": "Project 10",
+    "coverImage": "../../src/testdemo/Design sem nome (10).png",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "Branding"],
+    "markdownUrl": "../designs/samples/project-10.md"
+  },
+  {
+    "id": "project-11",
+    "date": "2024-12-18",
+    "title": "Project 11",
+    "coverImage": "../../src/testdemo/f91bcd3e9395b2eeb13f20c507619aa7.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "UI/UX"],
+    "markdownUrl": "../designs/samples/project-11.md"
+  }
+]
+
