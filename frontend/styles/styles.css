@@ -90,6 +90,141 @@ span:hover {
   padding: 0 1em;
 }
 
+/* Section header in projects list - flows with columns like cards */
+.section-header.card {
+  margin-bottom: 0.5em;
+}
+
+.section-title-card {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.01em;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+/* Project items as cards (exactly like design page) */
+.project-item.card {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.project-link-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0.25em;
+  border-bottom: 1px solid #e0e0e0;
+  transition: border-color 0.2s;
+}
+
+.project-link-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-item:hover .project-link-content {
+  border-bottom-color: #1a1a1a;
+}
+
+.project-name-card {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  flex: 1;
+  color: #1a1a1a;
+}
+
+.project-date-card {
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  margin-left: 0.5em;
+  white-space: nowrap;
+}
+
+.project-preview {
+  position: absolute;
+  top: 0;
+  width: 300px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Hide preview on mobile */
+@media (max-width: 768px) {
+  .project-preview {
+    display: none;
+  }
+}
+
+.project-preview.preview-right {
+  left: calc(100% + 1em);
+}
+
+.project-preview.preview-left {
+  right: calc(100% + 1em);
+  left: auto;
+}
+
+.project-item:hover .project-preview {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-content {
+  padding: 1em;
+}
+
+.preview-title {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5em 0;
+  color: #1a1a1a;
+}
+
+.preview-excerpt {
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  line-height: 1.5;
+  margin: 0 0 0.75em 0;
+}
+
+.preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.preview-tag {
+  background: #f2f3f5;
+  border: 1px solid #e4e6ea;
+  color: #3b3b3b;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
 /* Cards de galeria */
 .card {
   display: inline-block;

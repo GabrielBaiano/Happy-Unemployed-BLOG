@@ -1,0 +1,33 @@
+[
+  {
+    "id": "project-1",
+    "date": "2025-01-15",
+    "title": "Project 1",
+    "coverImage": "../../src/testdemo/02a5be772ccb8f6db7f7163a27ff91e7.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "UI/UX"],
+    "markdownUrl": "../projects/samples/project-1.md"
+  },
+  {
+    "id": "project-2",
+    "date": "2025-01-10",
+    "title": "Project 2",
+    "coverImage": "../../src/img/YellowHood Studio.png",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Branding", "Design"],
+    "markdownUrl": "../projects/samples/project-2.md"
+  },
+  {
+    "id": "project-3",
+    "date": "2025-01-08",
+    "title": "Project 3",
+    "coverImage": "../../src/testdemo/1abbdabbf0e3f12e985e7c0afac1036e.jpg",
+    "imageFilter": 0.0,
+    "excerpt": "Short project description.",
+    "tags": ["Design", "Visual"],
+    "markdownUrl": "../projects/samples/project-3.md"
+  }
+]
+

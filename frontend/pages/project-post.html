@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="shotcut icon" href="../../src/HUpage.jpg" />
+  <title>Unemployed Blog — Project Post</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html"><img class="logo" src="../../src/HU.png" /></a>
+      <ul class="menu">
+        <li><a href="projects.html"><span>PROJECTS</span></a></li>
+        <li><a href="news.html"><span>NEWS</span></a></li>
+        <li><a href="design.html"><span>DESIGN</span></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="blog" id="projectRoot">
+    <article class="post-card" id="projectContainer" style="box-shadow:none;border:none;">
+      <div class="post-top">
+        <div class="chip" id="projectDate">Loading…</div>
+      </div>
+      <div class="post-inner">
+        <h2 class="post-price" id="projectTitle"></h2>
+        <ul class="badges" id="projectTags"></ul>
+        <p class="post-excerpt" id="projectExcerpt"></p>
+      </div>
+      <div class="post-media" style="position: relative;"><img class="cover-rounded" id="projectCover" alt="cover"><div id="projectCoverFilter" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0); pointer-events: none; border-radius: 12px;"></div></div>
+      <div class="post-full" style="padding:16px;">
+        <div id="projectContent"></div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footainer">
+      <p>2025 HU. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/frontmatter.js"></script>
+  <script>
+    (async function () {
+      const params = new URLSearchParams(location.search);
+      const filename = params.get('file') || params.get('id') + '.md';
+      
+      if (!filename) {
+        document.getElementById('projectContent').innerHTML = '<h1>Project not found</h1><p>No filename specified.</p>';
+        return;
+      }
+
+      try {
+        const mdRes = await fetch(`../projects/samples/${filename}`);
+        if (!mdRes.ok) {
+          throw new Error(`Failed to load markdown: ${mdRes.status} ${mdRes.statusText}`);
+        }
+        const markdown = await mdRes.text();
+        const { metadata, content } = parseFrontMatter(markdown);
+
+        // Set metadata
+        document.getElementById('projectDate').textContent = new Date(metadata.date || new Date()).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+        document.getElementById('projectTitle').textContent = metadata.title || 'Untitled';
+        document.getElementById('projectExcerpt').textContent = metadata.excerpt || '';
+        document.getElementById('projectCover').src = metadata.coverImage || '';
+        const filterValue = (metadata.imageFilter || 0) * 0.3;
+        document.getElementById('projectCoverFilter').style.background = `rgba(0, 0, 0, ${filterValue})`;
+
+        // Set tags
+        const tagsEl = document.getElementById('projectTags');
+        tagsEl.innerHTML = '';
+        (metadata.tags || []).forEach(t => {
+          const li = document.createElement('li');
+          li.className = 'badge';
+          li.textContent = t;
+          tagsEl.appendChild(li);
+        });
+
+        // Render content
+        document.getElementById('projectContent').innerHTML = marked.parse(content || '# No content');
+      } catch (error) {
+        console.error('Error loading project:', error);
+        document.getElementById('projectContent').innerHTML = `<h1>Error loading content</h1><p>Could not load the project: ${error.message}</p>`;
+      }
+    })();
+  </script>
+</body>
+
+</html>
+
