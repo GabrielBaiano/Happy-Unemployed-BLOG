@@ -38,7 +38,7 @@
     const validProjects = projects.filter(p => p !== null);
     
     listRoot.innerHTML = '';
-    validProjects.forEach(project => {
+    validProjects.forEach((project, index) => {
       const card = document.createElement('div');
       card.className = 'card';
       const filterValue = (project.imageFilter || 0) * 0.3;
